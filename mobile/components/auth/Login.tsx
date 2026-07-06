@@ -17,8 +17,8 @@ import { LoginRequest } from '../../types/auth';
 import useAuth from '@/hooks/useAuth';
 
 export default function Login() {
-  const [email, setEmail] = useState('luisboschettini@gmail.com');
-  const [password, setPassword] = useState('senha123');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
   const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
 
@@ -93,7 +93,7 @@ export default function Login() {
     <View style={styles.form}>
       <Input
         label="E-mail"
-        placeholder="email@example.com"
+        placeholder="Insira aqui um e-mail válido"
         value={email}
         onChangeText={setEmail}
         keyboardType="email-address"

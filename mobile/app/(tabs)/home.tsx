@@ -3,18 +3,48 @@ import {
   StyleSheet,
   Text,
   View,
+  TouchableOpacity,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { Ionicons } from '@expo/vector-icons';
 import { colors } from '../../constants/colors';
+import useSession from '@/hooks/useSession';
 
 export default function HomeScreen() {
+  const { user } = useSession();
+
+  const name = user?.name ?? 'Usuário';
+
   return (
     <SafeAreaView style={styles.container}>
+      
       <View style={styles.header}>
-        <Text style={styles.greeting}>Olá! 👋</Text>
-        <Text style={styles.subtitle}>
-          Bem-vindo ao aplicativo.
-        </Text>
+        
+        <View style={styles.left}>
+          <View style={styles.avatar}>
+            <Ionicons name="person" size={18} color="#fff" />
+          </View>
+
+          <View style={styles.userInfo}>
+            <Text style={styles.hello}>
+              Olá, {name}
+            </Text>
+            <Text style={styles.welcome}>
+              Bem-vindo ao Sim
+            </Text>
+          </View>
+        </View>
+
+        <View style={styles.right}>
+          <TouchableOpacity style={styles.iconBtn}>
+            <Ionicons name="settings" size={22} color={colors.textPrimary} />
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.iconBtn}>
+            <Ionicons name="menu" size={24} color={colors.textPrimary} />
+          </TouchableOpacity>
+        </View>
+
       </View>
 
       <View style={styles.card}>
@@ -25,14 +55,6 @@ export default function HomeScreen() {
         </Text>
       </View>
 
-      <View style={styles.card}>
-        <Text style={styles.cardTitle}>Próximos passos</Text>
-
-        <Text style={styles.item}>• Agendamentos</Text>
-        <Text style={styles.item}>• Consultas</Text>
-        <Text style={styles.item}>• Exames</Text>
-        <Text style={styles.item}>• Perfil</Text>
-      </View>
     </SafeAreaView>
   );
 }
@@ -45,19 +67,50 @@ const styles = StyleSheet.create({
   },
 
   header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     marginBottom: 32,
   },
 
-  greeting: {
-    fontSize: 30,
-    fontWeight: '700',
-    color: colors.primary,
+  left: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
   },
 
-  subtitle: {
-    marginTop: 8,
+  avatar: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: colors.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  userInfo: {
+    justifyContent: 'center',
+  },
+
+  hello: {
     fontSize: 16,
+    fontWeight: '700',
+    color: colors.textPrimary,
+  },
+
+  welcome: {
+    fontSize: 13,
     color: colors.textSecondary,
+  },
+
+  right: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 14,
+  },
+
+  iconBtn: {
+    padding: 6,
   },
 
   card: {
@@ -86,11 +139,5 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: colors.textSecondary,
     lineHeight: 22,
-  },
-
-  item: {
-    fontSize: 15,
-    color: colors.textPrimary,
-    marginTop: 8,
   },
 });

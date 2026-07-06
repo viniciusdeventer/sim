@@ -12,8 +12,8 @@ import {
 import HeaderWave from '../../components/ui/HeaderWave';
 import { colors } from '../../constants/colors';
 
-import Login from '../../components/auth/login';
-import Register from '../../components/auth/register';
+import Login from '../../components/auth/Login';
+import Register from '../../components/auth/Register';
 
 export default function AuthScreen() {
   const [tab, setTab] = useState<'login' | 'register'>('login');
@@ -29,11 +29,7 @@ export default function AuthScreen() {
       >
         <HeaderWave
           title={tab === 'login' ? 'Seja Bem-Vindo' : 'Crie sua Conta'}
-          subtitle={
-            tab === 'login'
-              ? 'Crie uma conta ou faça login para acessar o app'
-              : 'Crie uma conta ou faça login para acessar o app'
-          }
+          subtitle={'Crie uma conta ou faça login para acessar o app'}
         />
 
         <View style={styles.tabs}>

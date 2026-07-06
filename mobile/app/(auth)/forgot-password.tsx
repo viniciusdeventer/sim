@@ -10,10 +10,10 @@ import {
 } from 'react-native';
 import { router } from 'expo-router';
 
-import HeaderWave from '../ui/HeaderWave';
-import Button from '../ui/Button';
-import Input from '../ui/Input';
-import AppModal from '../ui/Modal';
+import HeaderWave from '../../components/ui/HeaderWave';
+import Button from '../../components/ui/Button';
+import Input from '../../components/ui/Input';
+import AppModal from '../../components/ui/Modal';
 
 import { colors } from '../../constants/colors';
 import useForgotPassword from '@/hooks/useForgotPassword';
@@ -152,11 +152,11 @@ export default function ForgotPasswordScreen() {
           />
 
           <TouchableOpacity
-            onPress={() => router.push('/login')}
+            onPress={() => router.push('/auth')}
             style={styles.backButton}
           >
             <Text style={styles.backButtonText}>
-              ← Voltar para Login
+              Voltar para Login
             </Text>
           </TouchableOpacity>
         </View>

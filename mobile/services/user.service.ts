@@ -98,6 +98,7 @@ class UserService {
       }
 
       await api.post('/passwordResets', {
+        id: Math.random().toString(36).slice(2),
         email: data.email,
         token: `reset_${Math.random().toString(36).slice(2)}`,
         expiresAt: new Date(Date.now() + 60 * 60 * 1000).toISOString(),

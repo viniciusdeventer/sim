@@ -1,50 +1,69 @@
-# Welcome to your Expo app 👋
+# SIM
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+O **SIM** é um aplicativo para **controle de estoque**, desenvolvido para facilitar o gerenciamento de produtos, movimentações e demais operações relacionadas ao estoque.
 
-## Get started
+## Estrutura do projeto
 
-1. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+.
+├── mobile/        # Aplicação React Native / Expo
+└── README.md
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Toda a aplicação está localizada na pasta `mobile`.
 
-## Learn more
+## Pré-requisitos
 
-To learn more about developing your project with Expo, look at the following resources:
+Antes de iniciar o projeto, certifique-se de possuir instalado:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- Node.js (versão LTS recomendada)
+- npm
 
-## Join the community
+## Executando o projeto
 
-Join our community of developers creating universal apps.
+Entre na pasta da aplicação:
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```bash
+cd mobile
+```
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+Inicie a aplicação:
+
+```bash
+npm run web
+```
+
+Em outro terminal, inicie o servidor responsável pelos dados locais:
+
+```bash
+npm run json-server
+```
+
+## Banco de dados
+
+O projeto utiliza o **JSON Server** para simular uma API durante o desenvolvimento.
+
+Todos os dados são armazenados no arquivo:
+
+```
+db.json
+```
+
+Qualquer alteração realizada pela aplicação será persistida nesse arquivo enquanto o servidor estiver em execução.
+
+## Tecnologias
+
+- React Native
+- Expo
+- TypeScript
+- JSON Server
+
+## Desenvolvimento
+
+Após iniciar tanto a aplicação quanto o JSON Server, o ambiente estará pronto para desenvolvimento local.

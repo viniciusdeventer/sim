@@ -44,7 +44,8 @@ export default function CountScreen() {
 const styles = StyleSheet.create({
   container: { 
     flex: 1, 
-    backgroundColor: colors.white 
+    backgroundColor:'#F5F7FA',
+    padding: 24
   },
   scrollContainer: {
     flexGrow: 1,

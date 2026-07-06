@@ -4,6 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useMovements } from '../../hooks/useMovement';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { colors } from '../../constants/colors';
+import SearchInput from '@/components/ui/SearchInput';
 
 export default function KardexScreen() {
   const { movements, isLoading } = useMovements();
@@ -45,18 +46,16 @@ export default function KardexScreen() {
         <Text style={styles.subtitulo}>Acompanhe as suas movimentações.</Text>
       </View>
 
+
       <View style={styles.searchContainer}>
-        <TextInput 
-          style={styles.searchInput} 
-          placeholder="Busca por nome do produto" 
-          placeholderTextColor={colors.gray}
+        <SearchInput 
+          placeholder="Busca por nome do produto"
           value={busca}
-          onChangeText={setBusca} 
+          onChangeText={setBusca}
         />
-        <Ionicons name="search" size={20} color={colors.textPrimary} style={styles.searchIcon} />
       </View>
 
-<View style={styles.filtersWrapper}>
+      <View style={styles.filtersWrapper}>
         <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.filtersContainer}>
           {abas.map((aba) => {
             const isAtivo = filtroAtivo === aba.id;
@@ -141,7 +140,8 @@ export default function KardexScreen() {
 const styles = StyleSheet.create({
   container: { 
     flex: 1, 
-    backgroundColor: colors.white 
+    backgroundColor: '#F5F7FA',
+    padding: 24
   },
   header: { 
     paddingHorizontal: 24, 
@@ -162,23 +162,6 @@ const styles = StyleSheet.create({
   searchContainer: {
     marginHorizontal: 24,
     marginBottom: 16,
-    position: 'relative',
-    justifyContent: 'center',
-  },
-  searchInput: {
-    borderWidth: 1,
-    borderColor: colors.border,
-    borderRadius: 24,
-    paddingVertical: 12,
-    paddingLeft: 16,
-    paddingRight: 40,
-    fontSize: 14,
-    color: colors.textPrimary,
-    backgroundColor: colors.white,
-  },
-  searchIcon: {
-    position: 'absolute',
-    right: 16,
   },
   filtersWrapper: {
     marginBottom: 24,

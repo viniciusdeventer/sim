@@ -26,6 +26,13 @@ export const colors = {
   inputBorder: '#D0D0D0',
   inputBackground: '#FFFFFF',
   linkBlue: '#1560BD',
+
+  // Cores específicas do Kardex 
+  badgeEntrada: '#4ADE80',
+  badgeSaida: '#5C6ADD',
+  chipActiveBg: '#F3E8FF',
+  chipActiveBorder: '#E9D5FF',
+  chipActiveText: '#6B21A8',
 };
 
 export default colors;

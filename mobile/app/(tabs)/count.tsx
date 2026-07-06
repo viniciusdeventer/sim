@@ -1,87 +1,73 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { View, Text, StyleSheet, KeyboardAvoidingView, Platform, Alert, ScrollView } from 'react-native';
+import { CountForm } from '../../components/count/CountForm';
+import { useCount } from '../../hooks/useCount';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { colors } from '../../constants/colors';
+import { router } from 'expo-router';
 
 export default function CountScreen() {
-  return (
+  const { registerCount, isLoading } = useCount();
+
+  const handleRegisterCount = async (dados: any) => {
+    const success = await registerCount(dados);
+    if (success) {
+      Alert.alert('Sucesso', 'Movimentação registrada com sucesso!');
+      router.push('/kardex');
+    }
+  };
+
+ return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.greeting}>Olá! 👋</Text>
-        <Text style={styles.subtitle}>
-          Bem-vindo ao aplicativo.
-        </Text>
-      </View>
+      <KeyboardAvoidingView 
+        style={{ flex: 1 }} 
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      >
+        <ScrollView contentContainerStyle={styles.scrollContainer} showsVerticalScrollIndicator={false}>
+          <View style={styles.header}>
+            <Text style={styles.titulo}>NOVA CONTAGEM</Text>
+            <Text style={styles.subtitulo}>Registre entradas ou saídas de estoque.</Text>
+          </View>
 
-      <View style={styles.card}>
-        <Text style={styles.cardTitle}>Tudo pronto!</Text>
-
-        <Text style={styles.cardDescription}>
-          Seu login foi realizado com sucesso.
-        </Text>
-      </View>
+          <View style={styles.formContainer}>
+            <CountForm 
+              onSubmit={handleRegisterCount} 
+              isLoading={isLoading} 
+            />
+          </View>
+        </ScrollView>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F5F7FA',
-    padding: 24,
+  container: { 
+    flex: 1, 
+    backgroundColor: colors.white 
   },
-
-  header: {
-    marginBottom: 32,
+  scrollContainer: {
+    flexGrow: 1,
   },
-
-  greeting: {
-    fontSize: 30,
-    fontWeight: '700',
-    color: colors.primary,
+  header: { 
+    paddingHorizontal: 24, 
+    paddingTop: 32,
+    paddingBottom: 24,
   },
-
-  subtitle: {
-    marginTop: 8,
-    fontSize: 16,
-    color: colors.textSecondary,
+  titulo: { 
+    fontSize: 16, 
+    fontWeight: '900', 
+    color: colors.black,
+    letterSpacing: 0.5,
   },
-
-  card: {
-    backgroundColor: colors.white,
-    borderRadius: 16,
-    padding: 20,
-    marginBottom: 20,
-    shadowColor: '#000',
-    shadowOpacity: 0.08,
-    shadowRadius: 10,
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    elevation: 4,
+  subtitulo: { 
+    fontSize: 12, 
+    color: colors.gray, 
+    marginTop: 4 
   },
-
-  cardTitle: {
-    fontSize: 18,
-    fontWeight: '700',
-    color: colors.textPrimary,
-    marginBottom: 10,
-  },
-
-  cardDescription: {
-    fontSize: 15,
-    color: colors.textSecondary,
-    lineHeight: 22,
-  },
-
-  item: {
-    fontSize: 15,
-    color: colors.textPrimary,
-    marginTop: 8,
+  formContainer: { 
+    flex: 1, 
+    paddingHorizontal: 24,
+    paddingBottom: 32,
   },
 });

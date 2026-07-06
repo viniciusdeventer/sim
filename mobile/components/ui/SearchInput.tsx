@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, TextInput, View } from 'react-native';
+import { StyleSheet, TextInput, View, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { colors } from '../../constants/colors';
 
@@ -19,24 +19,25 @@ export default function SearchInput({
       <Ionicons
         name="search-outline"
         size={20}
-        color={colors.textSecondary}
+        color={colors.gray}
       />
 
       <TextInput
         style={styles.input}
         placeholder={placeholder}
-        placeholderTextColor={colors.textSecondary}
+        placeholderTextColor={colors.gray}
         value={value}
         onChangeText={onChangeText}
       />
 
       {value.length > 0 && (
-        <Ionicons
-          name="close-circle"
-          size={20}
-          color={colors.textSecondary}
-          onPress={() => onChangeText('')}
-        />
+        <TouchableOpacity onPress={() => onChangeText('')} activeOpacity={0.7}>
+          <Ionicons
+            name="close-circle"
+            size={20}
+            color={colors.gray}
+          />
+        </TouchableOpacity>
       )}
     </View>
   );
@@ -45,27 +46,19 @@ export default function SearchInput({
 const styles = StyleSheet.create({
   container: {
     height: 48,
-    borderRadius: 14,
+    borderRadius: 24, 
+    borderWidth: 1,
+    borderColor: colors.border,
     backgroundColor: colors.white,
     paddingHorizontal: 16,
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 20,
-    marginBottom: 8,
-    elevation: 2,
-    shadowColor: '#000',
-    shadowOpacity: 0.04,
-    shadowRadius: 6,
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
+    boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.02)', 
   },
-
   input: {
     flex: 1,
     marginLeft: 10,
-    fontSize: 15,
+    fontSize: 14,
     color: colors.textPrimary,
   },
 });

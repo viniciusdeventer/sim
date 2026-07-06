@@ -13,8 +13,17 @@
       "id": "aXL3yy-4WP0",
       "name": "Luisito Suarez",
       "email": "Luisito@gmail.com",
+      "isActive": true,
       "password": "JogoMuito",
       "createdAt": "2026-07-06T16:57:28.690Z",
+      "updatedAt": "2026-07-06T16:57:28.690Z"
+    },
+    {
+      "id": "ximcSeCE82E",
+      "name": "Jorge",
+      "email": "jorge@email.com",
+      "password": "jorge123",
+      "createdAt": "2026-07-06T15:57:06.094Z",
       "isActive": true
     }
   ],
@@ -74,20 +83,7 @@
       "sellPrice": 1500,
       "isActive": true,
       "createdAt": "2026-07-06T01:07:29.464Z",
-      "updatedAt": "2026-07-06T01:07:29.464Z"
-    },
-    {
-      "id": "z-fl3DJUsNE",
-      "code": "0000000001",
-      "name": "Meu joelho",
-      "description": "virou uma bola",
-      "imageUrl": "https://www.terra.com.br/esportes/suarez-desiste-de-ir-para-barcelona-e-fara-tratamento-do-joelho-em-porto-alegre-diz-jornal-uruguaio,cbb8107c5a92e86a426845f6390212a89jej2evq.html",
-      "categoryId": "xyEIpx_yLAc",
-      "buyPrice": 1000,
-      "sellPrice": 1200,
-      "isActive": true,
-      "createdAt": "2026-07-06T16:59:08.376Z",
-      "updatedAt": "2026-07-06T16:59:08.376Z"
+      "updatedAt": "2026-07-06T18:04:24.820Z"
     }
   ],
   "movements": [
@@ -110,6 +106,13 @@
       "observation": "Venda ao cliente",
       "createdBy": "USR001",
       "createdAt": "2026-07-06T10:30:00.000Z"
+    },
+    {
+      "productId": "123",
+      "quantity": 1,
+      "type": "ENTRADA",
+      "date": "2026-07-06T16:13:14.959Z",
+      "id": "ubSCXMOEeWw"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

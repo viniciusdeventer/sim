@@ -38,6 +38,24 @@ export default function useAuth() {
     }
   };
 
+  const updateProfile = async (id: string, data: any) => {
+    setLoading(true);
+    try {
+      const response = await apiService.update(id, data);
+
+      if (response.success && response.user) {
+        const token = await authStorage.getToken();
+        if (token) {
+          await authStorage.save(response.user, token);
+        }
+      }
+
+      return response;
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const logout = async () => {
     await authStorage.clear();
   };
@@ -47,5 +65,6 @@ export default function useAuth() {
     login,
     register,
     logout,
+    updateProfile,
   };
 }

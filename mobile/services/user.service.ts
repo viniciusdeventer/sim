@@ -77,6 +77,22 @@ class UserService {
     }
   }
 
+  async update(id: string, data: Partial<User>): Promise<{ success: boolean; message: string; user?: User }> {
+    try {
+      const response = await api.patch<User>(`/users/${id}`, data);
+      return {
+        success: true,
+        message: 'Perfil atualizado com sucesso',
+        user: response.data,
+      };
+    } catch {
+      return {
+        success: false,
+        message: 'Erro ao atualizar perfil',
+      };
+    }
+  }
+
   async requestPasswordReset(
     data: PasswordResetRequest
   ): Promise<LoginResponse> {

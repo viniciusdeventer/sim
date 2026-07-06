@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   StyleSheet,
   Text,
@@ -6,13 +6,15 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { colors } from '../../constants/colors';
 import useSession from '@/hooks/useSession';
+import Sidebar from '@/components/Sidebar';
 
 export default function HomeScreen() {
+  const [sidebarVisible, setSidebarVisible] = useState(false);
   const { user } = useSession();
-
   const name = user?.name ?? 'Usuário';
 
   return (
@@ -36,12 +38,26 @@ export default function HomeScreen() {
         </View>
 
         <View style={styles.right}>
-          <TouchableOpacity style={styles.iconBtn}>
-            <Ionicons name="settings" size={22} color={colors.textPrimary} />
+          <TouchableOpacity
+            style={styles.iconBtn}
+            onPress={() => router.push('/settings')}
+          >
+            <Ionicons
+              name="settings"
+              size={22}
+              color={colors.textPrimary}
+            />
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.iconBtn}>
-            <Ionicons name="menu" size={24} color={colors.textPrimary} />
+          <TouchableOpacity
+            style={styles.iconBtn}
+            onPress={() => setSidebarVisible(true)}
+          >
+            <Ionicons
+              name="menu"
+              size={24}
+              color={colors.textPrimary}
+            />
           </TouchableOpacity>
         </View>
 
@@ -54,7 +70,10 @@ export default function HomeScreen() {
           Seu login foi realizado com sucesso.
         </Text>
       </View>
-
+      <Sidebar
+        visible={sidebarVisible}
+        onClose={() => setSidebarVisible(false)}
+      />
     </SafeAreaView>
   );
 }
@@ -118,14 +137,8 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     padding: 20,
     marginBottom: 20,
-    shadowColor: '#000',
-    shadowOpacity: 0.08,
-    shadowRadius: 10,
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
     elevation: 4,
+    boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
   },
 
   cardTitle: {

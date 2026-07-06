@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { View, Image, StyleSheet } from "react-native";
 import { router } from "expo-router";
+import { colors } from "@/constants/colors";
+import Ionicons from "@expo/vector-icons/build/Ionicons";
 
 export default function HomeScreen() {
   useEffect(() => {
@@ -13,10 +15,10 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
-      <Image
-        source={require("@/assets/images/splash-icon.png")}
-        style={styles.logo}
-        resizeMode="contain"
+      <Ionicons
+        name="cube"
+        size={150}
+        color={colors.primary}
       />
     </View>
   );

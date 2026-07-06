@@ -1,20 +1,94 @@
 {
   "users": [
     {
-      "id": "HmOl8LRP1Bw",
+      "id": "USR001",
       "name": "Vinicius",
       "email": "vinicius@email.com",
       "password": "vinicius",
+      "isActive": true,
       "createdAt": "2026-07-06T01:07:29.464Z",
-      "isActive": true
+      "updatedAt": "2026-07-06T01:07:29.464Z"
     }
   ],
   "passwordResets": [
     {
-      "id": "Cc7_mo20ppw",
+      "id": "PR001",
+      "userId": "USR001",
       "email": "vinicius@email.com",
       "token": "reset_bbqnhn1ihbb",
-      "expiresAt": "2026-07-06T02:54:21.725Z"
+      "expiresAt": "2026-07-06T02:54:21.725Z",
+      "createdAt": "2026-07-06T01:54:21.725Z"
+    }
+  ],
+  "categories": [
+    {
+      "id": "CAT001",
+      "name": "Eletrônicos",
+      "description": "Produtos eletrônicos em geral",
+      "isActive": true,
+      "createdAt": "2026-07-06T01:07:29.464Z",
+      "updatedAt": "2026-07-06T01:07:29.464Z"
+    },
+    {
+      "id": "CAT002",
+      "name": "Roupas",
+      "description": "Vestuário e acessórios",
+      "isActive": true,
+      "createdAt": "2026-07-06T01:07:29.464Z",
+      "updatedAt": "2026-07-06T01:07:29.464Z"
+    },
+    {
+      "id": "CAT003",
+      "name": "Alimentos",
+      "description": "Produtos alimentícios",
+      "isActive": true,
+      "createdAt": "2026-07-06T01:07:29.464Z",
+      "updatedAt": "2026-07-06T01:07:29.464Z"
+    },
+    {
+      "id": "xyEIpx_yLAc",
+      "name": "Teste2",
+      "description": "teste",
+      "isActive": true,
+      "createdAt": "2026-07-06T05:24:51.889Z",
+      "updatedAt": "2026-07-06T05:24:56.491Z"
+    }
+  ],
+  "products": [
+    {
+      "id": "PRO001",
+      "code": "123456",
+      "name": "Smartphone",
+      "description": "Smartphone de última geração",
+      "imageUrl": "https://example.com/smartphone.jpg",
+      "categoryId": "CAT001",
+      "buyPrice": 1000,
+      "sellPrice": 1500,
+      "isActive": true,
+      "createdAt": "2026-07-06T01:07:29.464Z",
+      "updatedAt": "2026-07-06T01:07:29.464Z"
+    }
+  ],
+  "movements": [
+    {
+      "id": "MOV001",
+      "productId": "PRO001",
+      "type": "IN",
+      "quantity": 20,
+      "unitPrice": 1000,
+      "observation": "Compra inicial do fornecedor",
+      "createdBy": "USR001",
+      "createdAt": "2026-07-06T08:00:00.000Z"
+    },
+    {
+      "id": "MOV002",
+      "productId": "PRO001",
+      "type": "OUT",
+      "quantity": 2,
+      "unitPrice": 1500,
+      "observation": "Venda ao cliente",
+      "createdBy": "USR001",
+      "createdAt": "2026-07-06T10:30:00.000Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -52,13 +52,8 @@ class UserService {
         };
       }
 
-      const nextId = Math.max(
-        0,
-        ...users.map((u) => Number(u.id) || 0)
-      ) + 1;
-
       const newUser: User = {
-        id: String(nextId),
+        id: crypto.randomUUID(),
         name: data.name,
         email: data.email,
         password: data.password,
@@ -98,7 +93,7 @@ class UserService {
       }
 
       await api.post('/passwordResets', {
-        id: Math.random().toString(36).slice(2),
+        id: crypto.randomUUID(),
         email: data.email,
         token: `reset_${Math.random().toString(36).slice(2)}`,
         expiresAt: new Date(Date.now() + 60 * 60 * 1000).toISOString(),

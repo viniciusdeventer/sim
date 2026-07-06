@@ -8,6 +8,14 @@
       "isActive": true,
       "createdAt": "2026-07-06T01:07:29.464Z",
       "updatedAt": "2026-07-06T01:07:29.464Z"
+    },
+    {
+      "id": "aXL3yy-4WP0",
+      "name": "Luisito Suarez",
+      "email": "Luisito@gmail.com",
+      "password": "JogoMuito",
+      "createdAt": "2026-07-06T16:57:28.690Z",
+      "isActive": true
     }
   ],
   "passwordResets": [
@@ -23,7 +31,7 @@
   "categories": [
     {
       "id": "CAT001",
-      "name": "Eletrônicos",
+      "name": "eletrônicos",
       "description": "Produtos eletrônicos em geral",
       "isActive": true,
       "createdAt": "2026-07-06T01:07:29.464Z",
@@ -67,6 +75,19 @@
       "isActive": true,
       "createdAt": "2026-07-06T01:07:29.464Z",
       "updatedAt": "2026-07-06T01:07:29.464Z"
+    },
+    {
+      "id": "z-fl3DJUsNE",
+      "code": "0000000001",
+      "name": "Meu joelho",
+      "description": "virou uma bola",
+      "imageUrl": "https://www.terra.com.br/esportes/suarez-desiste-de-ir-para-barcelona-e-fara-tratamento-do-joelho-em-porto-alegre-diz-jornal-uruguaio,cbb8107c5a92e86a426845f6390212a89jej2evq.html",
+      "categoryId": "xyEIpx_yLAc",
+      "buyPrice": 1000,
+      "sellPrice": 1200,
+      "isActive": true,
+      "createdAt": "2026-07-06T16:59:08.376Z",
+      "updatedAt": "2026-07-06T16:59:08.376Z"
     }
   ],
   "movements": [

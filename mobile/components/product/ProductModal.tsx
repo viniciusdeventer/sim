@@ -319,9 +319,10 @@ const styles = StyleSheet.create({
   deleteButton: {
     flex: 1,
     marginRight: 10,
+    backgroundColor: 'transparent',
+    borderColor: colors.danger, 
   },
-
   saveButton: {
     flex: 1,
-  },
+  }
 });

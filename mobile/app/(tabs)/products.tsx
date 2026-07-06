@@ -78,18 +78,19 @@ export default function ProductsScreen() {
   return (
     <SafeAreaView style={styles.container}>
 
+
       <View style={styles.header}>
         <View style={{ flex: 1 }}>
           <Text style={styles.title}>PRODUTOS</Text>
-
           <Text style={styles.subtitle}>
-            Veja e cadastre produtos em seu catálogo
+            Veja e cadastre produtos em seu catálogo.
           </Text>
         </View>
 
         <TouchableOpacity
           style={styles.addButton}
           onPress={handleCreate}
+          activeOpacity={0.8}
         >
           <Ionicons
             name="add"
@@ -99,11 +100,15 @@ export default function ProductsScreen() {
         </TouchableOpacity>
       </View>
 
-      <SearchInput
-        placeholder="Busca por Nome, Código ou SKU"
-        value={search}
-        onChangeText={setSearch}
-      />
+
+      <View style={styles.searchWrapper}>
+        <SearchInput
+          placeholder="Busca por Nome, Código ou SKU"
+          value={search}
+          onChangeText={setSearch}
+        />
+      </View>
+
 
       <View style={styles.filters}>
         <ScrollView
@@ -150,6 +155,7 @@ export default function ProductsScreen() {
         </ScrollView>
       </View>
 
+
       <View style={styles.statsRow}>
         <View style={styles.statBox}>
           <Ionicons name="cube-outline" size={18} color={colors.primary} />
@@ -167,6 +173,7 @@ export default function ProductsScreen() {
           </View>
         </View>
       </View>
+
 
       <FlatList
         data={filteredProducts}
@@ -186,13 +193,11 @@ export default function ProductsScreen() {
             <Ionicons
               name="cube-outline"
               size={60}
-              color={colors.textSecondary}
+              color={colors.border}
             />
-
             <Text style={styles.emptyTitle}>
               Nenhum produto encontrado
             </Text>
-
             <Text style={styles.emptySubtitle}>
               Cadastre seu primeiro produto
             </Text>
@@ -217,83 +222,85 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F5F7FA',
-    paddingHorizontal: 20,
-    paddingTop: 20,
+    padding: 24
   },
 
   header: {
     flexDirection: 'row',
     alignItems: 'center',
+    paddingHorizontal: 24,
+    paddingTop: 32,
+    paddingBottom: 16,
   },
 
   title: {
     fontSize: 16,
-    fontWeight: '700',
-    color: colors.textPrimary,
+    fontWeight: '900',
+    color: colors.black,
+    letterSpacing: 0.5,
   },
 
   subtitle: {
-    marginTop: 2,
-    color: colors.textSecondary,
+    marginTop: 4,
+    color: colors.gray,
     fontSize: 12,
   },
 
   addButton: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
+    width: 44,
+    height: 44,
+    borderRadius: 12, 
     backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
+    boxShadow: '0px 4px 12px rgba(40, 84, 178, 0.25)',
+  },
+
+  searchWrapper: {
+    paddingHorizontal: 24,
+    marginBottom: 16,
   },
 
   filters: {
-    height: 40,
-    marginTop: 4,
+    marginBottom: 24,
   },
 
   filtersContent: {
-    alignItems: 'center',
+    paddingHorizontal: 24,
     gap: 8,
-    paddingVertical: 2,
-    paddingRight: 4,
   },
 
   filterChip: {
-    height: 36,
-    minWidth: 60,
-    justifyContent: 'center',
+    flexDirection: 'row',
     alignItems: 'center',
-    alignSelf: 'flex-start',
-    flexShrink: 0,
-    paddingHorizontal: 14,
-    borderRadius: 20,
     borderWidth: 1,
-    borderColor: colors.inputBorder,
+    borderColor: colors.border,
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    borderRadius: 8,
     backgroundColor: colors.white,
   },
 
   filterChipActive: {
-    backgroundColor: colors.primary,
-    borderColor: colors.primary,
+    backgroundColor: colors.chipActiveBg,
+    borderColor: colors.chipActiveBorder,
   },
 
   filterChipText: {
-    fontSize: 13,
-    fontWeight: '500',
+    fontSize: 12,
+    fontWeight: '600',
     color: colors.textPrimary,
-    flexShrink: 0,
-    whiteSpace: 'nowrap',
   },
 
   filterChipTextActive: {
-    color: colors.white,
+    color: colors.chipActiveText,
   },
 
   statsRow: {
     flexDirection: 'row',
     gap: 12,
-    marginTop: 14,
+    paddingHorizontal: 24,
+    marginBottom: 16,
   },
 
   statBox: {
@@ -301,10 +308,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: colors.white,
-    borderRadius: 14,
+    borderRadius: 12,
     padding: 12,
-    elevation: 2,
-    boxShadow: '0px 2px 6px rgba(0, 0, 0, 0.04)',
+    borderWidth: 1,
+    borderColor: colors.grayLight,
+    boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.05)',
   },
 
   statValue: {
@@ -317,10 +325,12 @@ const styles = StyleSheet.create({
     fontSize: 11,
     color: colors.textSecondary,
     maxWidth: 110,
+    marginTop: 2,
   },
 
   list: {
-    paddingVertical: 16,
+    paddingHorizontal: 24,
+    paddingBottom: 24,
     gap: 12,
   },
 
@@ -331,14 +341,14 @@ const styles = StyleSheet.create({
 
   emptyTitle: {
     marginTop: 20,
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: '700',
     color: colors.textPrimary,
   },
 
   emptySubtitle: {
     marginTop: 6,
-    fontSize: 14,
-    color: colors.textSecondary,
+    fontSize: 13,
+    color: colors.gray,
   },
 });

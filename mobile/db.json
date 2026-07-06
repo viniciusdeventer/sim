@@ -1,0 +1,45 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "luisboschettini@gmail.com",
+      "password": "senha123",
+      "name": "Luis Boschettini",
+      "createdAt": "2024-01-15T10:30:00Z",
+      "isActive": true
+    },
+    {
+      "id": "2",
+      "email": "teste@gmail.com",
+      "password": "teste123",
+      "name": "Usuário Teste",
+      "createdAt": "2024-01-16T14:20:00Z",
+      "isActive": true
+    },
+    {
+      "id": "HmOl8LRP1Bw",
+      "name": "Vinicius",
+      "email": "vinicius@email.com",
+      "password": "vinicius",
+      "createdAt": "2026-07-06T01:07:29.464Z",
+      "isActive": true
+    }
+  ],
+  "sessions": [
+    {
+      "id": "1",
+      "userId": 1,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
+      "expiresAt": "2024-02-15T10:30:00Z"
+    }
+  ],
+  "passwordResets": [
+    {
+      "id": "1",
+      "email": "luisboschettini@gmail.com",
+      "token": "reset_token_123",
+      "expiresAt": "2024-01-22T10:30:00Z"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
